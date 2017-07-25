@@ -1,0 +1,22 @@
+<script type='text/javascript' src='/js/dependencies/sails.io.js'></script>
+<script type='text/javascript'>
+// The automatically-created socket is exposed as io.socket.
+// Use .on() to subscribe to the 'hello' event on the client
+console.log('*********初始化************');
+io.socket.on('hello', function gotHelloMessage (data) {
+  console.log('返回值呐???');
+  console.log('Socket `' + data.id + '` joined the party!');
+});
+
+io.socket.get('/say/hello', function gotResponse(body, response) {
+  console.log('怎么拿的啊???');
+  console.log('Server responded with status code ' + response.statusCode + ' and data: ', body);
+})
+
+</script>
+
+<div>
+  <h1>
+    订阅&发布
+  </h1>
+</div>
